@@ -1,0 +1,121 @@
+<form [formGroup]="form" class="card">
+    <!-- USER INFO -->
+    <div> USER INFOMATION</div>
+    <div class="borderInfo">
+        <div class="cover"></div>
+        <div class="avatar"></div>
+        <div class="positionInfo">
+            <table>
+                <tr>
+                    <th>USERNAME</th>
+                    <th>NICKNAME</th>
+                </tr>
+                <tr>
+                    <td><input formControlName="username" placeholder="Username"></td>
+                    <td><input formControlName="nickname" placeholder="Nickname"></td>
+                </tr>
+
+                <tr>
+                    <th>FIRST NAME</th>
+                    <th>LAST NAME</th>
+                </tr>
+                <tr>
+                    <td><input formControlName="firstName" placeholder="Firstname"></td>
+                    <td><input formControlName="lastName" placeholder="Lastname"></td>
+                </tr>
+
+                <tr>
+                    <th>POSITION</th>
+                    <th>NATIONALITY</th>
+                </tr>
+                <tr>
+                    <td>
+                        <select formControlName="position" class="form-control">
+                            <option value="">position</option>
+                            <option value="dev">Developer</option>
+                            <option value="tester">Tester</option>
+                        </select>
+                    </td>
+                    <td><input formControlName="nationality" placeholder="Nationality"></td>
+                </tr>
+
+                <tr>
+                    <th>TELEPHONE NUMBER</th>
+                    <th>STARTING DATE</th>
+                </tr>
+                <tr>
+                    <td><input formControlName="phone" placeholder="Telephone"></td>
+                    <td><input type="date" formControlName="startDate"></td>
+                </tr>
+
+            </table>
+        </div>
+    </div>
+
+    <!-- CONTACT -->
+    <div class="card">
+        <h3>CONTACT INFOMATION</h3>
+        <input formControlName="address" placeholder="Address">
+
+        <div class="grid4">
+            <select formControlName="subDistrict" class="form-control">
+                <option value="">Sub District</option>
+            </select>
+            <select formControlName="district" class="form-control">
+                <option value="">District</option>
+            </select>
+            <select formControlName="province" class="form-control">
+                <option value="">Province</option>
+            </select>
+            <select formControlName="postalCode" class="form-control">
+                <option value="">PostalCode</option>
+            </select>
+        </div>
+
+        <div class="grid3">
+            <input formControlName="facebook" placeholder="Facebook">
+            <input formControlName="lineId" placeholder="Line ID">
+            <input formControlName="instagram" placeholder="Instagram">
+        </div>
+    </div>
+
+    <!-- EDUCATION -->
+    <div class="card">
+        <h3>EDUCATION INFOMATION</h3>
+        <button class="btn-submit" type="button" (click)="addEducation()">
+            Add
+        </button>
+    </div>
+
+    <!-- EXPERIENCE -->
+    <div class="card">
+        <h3>EXPERIENCE INFOMATION</h3>
+        <button class="btn-submit" type="button" (click)="addExperience()">Add</button>
+    </div>
+
+    <!-- SKILL -->
+    <div class="card">
+        <h3>SKILL INFOMATION</h3>
+        <button class="btn-submit" type="button" (click)="addSkill()">Add</button>
+ 
+    </div>
+
+    <!-- INTEREST -->
+    <div class="card">
+        <h3>INTEREST INFOMATION</h3>
+        <button class="btn-submit" type="button" (click)="addInterest()">Add</button>
+
+    </div>
+
+    <!-- GUILD -->
+    <div class="card">
+        <h3>GUILD INFOMATION</h3>
+        <button class="btn-submit" type="button" (click)="addGuild()">Add</button>
+
+    </div>
+    <div class="btn-buttom" >
+        <button style = "margin: 0px 10px" class="btn-submit" (click)="saveUserInfo()">Save</button>
+        <button style = "margin: 0px 10px" class="btn-danger" (click)="clearData()">Clear data</button>
+    </div>
+
+</form>
