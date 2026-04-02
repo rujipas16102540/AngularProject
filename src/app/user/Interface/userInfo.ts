@@ -7,7 +7,7 @@ export interface UserInfo {
   position: string;
   nationality: string;
   telephone_number: string;
-  starting_date: string;
+  starting_date: Date;
   address: string;
   sub_district: string;
   district: string;
@@ -29,7 +29,7 @@ export class UserInfoObj {
       position: '',
       nationality: '',
       telephone_number: '',
-      starting_date: '',
+      starting_date: new Date(),
       address: '',
       sub_district: '',
       district: '',

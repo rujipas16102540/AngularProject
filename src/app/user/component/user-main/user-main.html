@@ -12,7 +12,7 @@
                 </tr>
                 <tr>
                     <td><input formControlName="username" placeholder="Username"></td>
-                    <td><input formControlName="nickname" placeholder="Nickname"></td>
+                    <td><input formControlName="nick_name" placeholder="Nickname"></td>
                 </tr>
 
                 <tr>
@@ -20,8 +20,8 @@
                     <th>LAST NAME</th>
                 </tr>
                 <tr>
-                    <td><input formControlName="firstName" placeholder="Firstname"></td>
-                    <td><input formControlName="lastName" placeholder="Lastname"></td>
+                    <td><input formControlName="first_name" placeholder="Firstname"></td>
+                    <td><input formControlName="last_name" placeholder="Lastname"></td>
                 </tr>
 
                 <tr>
@@ -44,8 +44,8 @@
                     <th>STARTING DATE</th>
                 </tr>
                 <tr>
-                    <td><input formControlName="phone" placeholder="Telephone"></td>
-                    <td><input type="date" formControlName="startDate"></td>
+                    <td><input formControlName="telephone_number" placeholder="Telephone"></td>
+                    <td><input  type ='date' formControlName="starting_date"></td>
                 </tr>
 
             </table>
@@ -58,23 +58,27 @@
         <input formControlName="address" placeholder="Address">
 
         <div class="grid4">
-            <select formControlName="subDistrict" class="form-control">
-                <option value="">Sub District</option>
+            <select formControlName="sub_district" class="form-control">
+                <option value="">Select</option>
+                <option value="Sub District">Sub District</option>
             </select>
             <select formControlName="district" class="form-control">
-                <option value="">District</option>
+                <option value="">Select</option>
+                <option value="District">District</option>
             </select>
             <select formControlName="province" class="form-control">
-                <option value="">Province</option>
+                <option value="">Select</option>
+                <option value="province">Province</option>
             </select>
-            <select formControlName="postalCode" class="form-control">
-                <option value="">PostalCode</option>
+            <select formControlName="postal_code" class="form-control">
+                <option value="">Select</option>
+                <option value="PostalCode">PostalCode</option>
             </select>
         </div>
 
         <div class="grid3">
             <input formControlName="facebook" placeholder="Facebook">
-            <input formControlName="lineId" placeholder="Line ID">
+            <input formControlName="line_id" placeholder="Line ID">
             <input formControlName="instagram" placeholder="Instagram">
         </div>
     </div>

@@ -23,20 +23,20 @@ export class UserMain {
   ) {
     this.form = this.fb.group({
       username: [''],
-      nickname: [''],
-      firstName: [''],
-      lastName: [''],
+      nick_name: [''],
+      first_name: [''],
+      last_name: [''],
       position: [''],
       nationality: [''],
-      phone: [''],
-      startDate: [''],
+      telephone_number: [''],
+      starting_date: [''],
       address: [''],
-      subDistrict: [''],
+      sub_district: [''],
       district: [''],
       province: [''],
-      postalCode: [''],
+      postal_code: [''],
       facebook: [''],
-      lineId: [''],
+      line_id: [''],
       instagram: [''],
     });
 
