@@ -1,125 +1,214 @@
-<form [formGroup]="form" class="card">
-    <!-- USER INFO -->
-    <div> USER INFOMATION</div>
-    <div class="borderInfo">
-        <div class="cover"></div>
-        <div class="avatar"></div>
-        <div class="positionInfo">
-            <table>
-                <tr>
-                    <th>USERNAME</th>
-                    <th>NICKNAME</th>
-                </tr>
-                <tr>
-                    <td><input formControlName="username" placeholder="Username"></td>
-                    <td><input formControlName="nick_name" placeholder="Nickname"></td>
-                </tr>
+<div>
+    <form [formGroup]="userInfo" class="card">
+        <!-- USER INFO -->
+        <div> USER INFOMATION</div>
+        <div class="borderInfo">
+            <div class="cover-wrapper">
+                <input type="file" #coverInput (change)="onFileSelected($event, 'cover')" accept="image/*" hidden>
+                <div class="cover" [style.background-image]="users.coverImage ? 'url(' + users.coverImage + ')' : ''">
+                </div>
+                <button type="button" class="btn-edit-cover" (click)="coverInput.click()">
+                    <span>📷</span> EDIT COVER PHOTO
+                </button>
+            </div>
 
-                <tr>
-                    <th>FIRST NAME</th>
-                    <th>LAST NAME</th>
-                </tr>
-                <tr>
-                    <td><input formControlName="first_name" placeholder="Firstname"></td>
-                    <td><input formControlName="last_name" placeholder="Lastname"></td>
-                </tr>
+            <div class="avatar-row">
+                <div class="avatar-wrapper">
+                    <input type="file" #avatarInput (change)="onFileSelected($event, 'avatar')" accept="image/*" hidden>
+                    <div class="avatar"
+                        [style.background-image]="users.profileImage ? 'url(' + users.profileImage + ')' : ''"></div>
+                    <button type="button" class="btn-edit-avatar" (click)="avatarInput.click()">📷</button>
+                </div>
 
-                <tr>
-                    <th>POSITION</th>
-                    <th>NATIONALITY</th>
-                </tr>
-                <tr>
-                    <td>
-                        <select formControlName="position" class="form-control">
-                            <option value="">position</option>
-                            <option value="dev">Developer</option>
-                            <option value="tester">Tester</option>
-                        </select>
-                    </td>
-                    <td><input formControlName="nationality" placeholder="Nationality"></td>
-                </tr>
-
-                <tr>
-                    <th>TELEPHONE NUMBER</th>
-                    <th>STARTING DATE</th>
-                </tr>
-                <tr>
-                    <td><input formControlName="telephone_number" placeholder="Telephone"></td>
-                    <td><input  type ='date' formControlName="starting_date"></td>
-                </tr>
-
-            </table>
+                <div class="info-grid-container">
+                    <div class="info-grid">
+                        <div class="info-group">
+                            <label>USERNAME</label>
+                            <input formControlName="username" placeholder="Username">
+                        </div>
+                        <div class="info-group">
+                            <label>NICK NAME</label>
+                            <input formControlName="nickName" placeholder="Nickname">
+                        </div>
+                        <div class="info-group">
+                            <label>FIRST NAME</label>
+                            <input formControlName="firstName" placeholder="Firstname">
+                        </div>
+                        <div class="info-group">
+                            <label>LAST NAME</label>
+                            <input formControlName="lastName" placeholder="Lastname">
+                        </div>
+                        <div class="info-group">
+                            <label>POSITION</label>
+                            <select formControlName="position" class="form-control">
+                                <option [ngValue]="null">position</option>
+                                <option value="dev">Developer</option>
+                                <option value="tester">Tester</option>
+                            </select>
+                        </div>
+                        <div class="info-group">
+                            <label>NATIONALITY</label>
+                            <input formControlName="nationality" placeholder="Nationality">
+                        </div>
+                        <div class="info-group">
+                            <label>TELEPHONE NUMBER</label>
+                            <input formControlName="telephoneNumber" placeholder="Telephone">
+                        </div>
+                        <div class="info-group">
+                            <label>STARTING DATE</label>
+                            <input type='date' formControlName="startingDate">
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-    </div>
+    </form>
 
-    <!-- CONTACT -->
-    <div class="card">
-        <h3>CONTACT INFOMATION</h3>
-        <input formControlName="address" placeholder="Address">
+    <form [formGroup]="contack">
+        <!-- CONTACT -->
+        <div class="card">
+            <h3>CONTACT INFOMATION</h3>
+            <input formControlName="address" placeholder="Address">
 
-        <div class="grid4">
-            <select formControlName="sub_district" class="form-control">
-                <option value="">Select</option>
-                <option value="Sub District">Sub District</option>
-            </select>
-            <select formControlName="district" class="form-control">
-                <option value="">Select</option>
-                <option value="District">District</option>
-            </select>
-            <select formControlName="province" class="form-control">
-                <option value="">Select</option>
-                <option value="province">Province</option>
-            </select>
-            <select formControlName="postal_code" class="form-control">
-                <option value="">Select</option>
-                <option value="PostalCode">PostalCode</option>
-            </select>
+            <div class="grid4">
+                <select formControlName="subDistrict" class="form-control">
+                    <option value=null>Select</option>
+                    <option value="Sub District">Sub District</option>
+                </select>
+                <select formControlName="district" class="form-control">
+                    <option value=null>Select</option>
+                    <option value="District">District</option>
+                </select>
+                <select formControlName="province" class="form-control">
+                    <option value=null>Select</option>
+                    <option value="province">Province</option>
+                </select>
+                <select formControlName="postalCode" class="form-control">
+                    <option value=null>Select</option>
+                    <option value="PostalCode">PostalCode</option>
+                </select>
+            </div>
+
+            <div class="grid3">
+                <input formControlName="facebook" placeholder="Facebook">
+                <input formControlName="lineId" placeholder="Line ID">
+                <input formControlName="instagram" placeholder="Instagram">
+            </div>
         </div>
+    </form>
 
-        <div class="grid3">
-            <input formControlName="facebook" placeholder="Facebook">
-            <input formControlName="line_id" placeholder="Line ID">
-            <input formControlName="instagram" placeholder="Instagram">
+    <form [formGroup]="educations">
+        <!-- EDUCATION -->
+        <div class="card">
+            <div class="row-between">
+                <h3>EDUCATIONAL INFORMATION</h3>
+                <button class="btn-add" type="button" (click)="addEducation()">
+                    + ADD EDUCATION
+                </button>
+            </div>
+            <div formArrayName="educations" class="timeline-container">
+                <div *ngFor="let edu of educationArray.controls; let i=index" [formGroupName]="i" class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="grid-edu">
+                            <input formControlName="year" placeholder="YEAR" class="input-year">
+                            <input formControlName="universityName" placeholder="UNIVERSITY NAME" class="input-univ">
+                            <button type="button" class="btn-remove" (click)="removeEducation(i)">×</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-    </div>
+    </form>
 
-    <!-- EDUCATION -->
-    <div class="card">
-        <h3>EDUCATION INFOMATION</h3>
-        <button class="btn-submit" type="button" (click)="addEducation()">
-            Add
-        </button>
-    </div>
-
-    <!-- EXPERIENCE -->
-    <div class="card">
-        <h3>EXPERIENCE INFOMATION</h3>
-        <button class="btn-submit" type="button" (click)="addExperience()">Add</button>
-    </div>
+    <form [formGroup]="experiences">
+        <!-- EXPERIENCE -->
+        <div class="card">
+            <div class="row-between">
+                <h3>EXPERIENCE INFORMATION</h3>
+                <button class="btn-add" type="button" (click)="addExperience()">+ ADD EXPERIENCE</button>
+            </div>
+            <div formArrayName="experiences" class="timeline-container">
+                <div *ngFor="let exp of experienceArray.controls; let i=index" [formGroupName]="i"
+                    class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="experience-box">
+                            <div class="input-group-exp">
+                                <input formControlName="fromUntil" placeholder="fomr - until" class="input-from">
+                                <input formControlName="position" placeholder="position" class="input-pos">
+                            </div>
+                            <button type="button" class="btn-remove" (click)="removeExperience(i)">×</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
 
     <!-- SKILL -->
-    <div class="card">
-        <h3>SKILL INFOMATION</h3>
-        <button class="btn-submit" type="button" (click)="addSkill()">Add</button>
- 
-    </div>
+    <form [formGroup]="skills">
+        <div class="card">
+            <div class="row-between">
+                <h3>SKILL INFORMATION</h3>
+                <button class="btn-add" type="button" (click)="addSkill()">+ ADD SKILL</button>
+            </div>
+            <div formArrayName="skills" class="skill-container">
+                <div *ngFor="let s of skillArray.controls; let i=index" [formGroupName]="i" class="skill-item">
+                    <input formControlName="name" placeholder="Skill Name" class="skill-name-input">
+
+                    <div class="skill-level-row">
+                        <span class="skill-level-text">{{s.value.level}} / 10</span>
+                        <div class="progress-bar-container">
+                            <div class="progress-bar-bg">
+                                <div class="progress-bar-fill" [style.width.%]="s.value.level * 10"></div>
+                            </div>
+                            <input type="range" formControlName="level" min="0" max="10" step="1"
+                                class="skill-level-range">
+                        </div>
+                        <button type="button" class="btn-remove-circle" (click)="removeSkill(i)">×</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
 
     <!-- INTEREST -->
-    <div class="card">
-        <h3>INTEREST INFOMATION</h3>
-        <button class="btn-submit" type="button" (click)="addInterest()">Add</button>
-
-    </div>
+    <form [formGroup]="interests">
+        <div class="card">
+            <div class="row-between">
+                <h3>INTEREST INFORMATION</h3>
+                <button class="btn-add" type="button" (click)="addInterest()">+ ADD INTEREST</button>
+            </div>
+            <div formArrayName="interests" class="tag-container">
+                <div *ngFor="let item of interestArray.controls; let i=index" [formGroupName]="i" class="tag-pill">
+                    <input formControlName="name" placeholder="Interest" class="tag-input">
+                    <button type="button" class="btn-remove-tag" (click)="removeInterest(i)">×</button>
+                </div>
+            </div>
+        </div>
+    </form>
 
     <!-- GUILD -->
-    <div class="card">
-        <h3>GUILD INFOMATION</h3>
-        <button class="btn-submit" type="button" (click)="addGuild()">Add</button>
+    <form [formGroup]="guilds">
+        <div class="card">
+            <div class="row-between">
+                <h3>GUILD INFORMATION</h3>
+                <button class="btn-add" type="button" (click)="addGuild()">+ ADD GUILD</button>
+            </div>
+            <div formArrayName="guilds" class="tag-container">
+                <div *ngFor="let item of guildArray.controls; let i=index" [formGroupName]="i" class="tag-pill">
+                    <input formControlName="name" placeholder="Guild" class="tag-input">
+                    <button type="button" class="btn-remove-tag" (click)="removeGuild(i)">×</button>
+                </div>
+            </div>
+        </div>
+    </form>
 
-    </div>
-    <div class="btn-buttom" >
-        <button style = "margin: 0px 10px" class="btn-submit" (click)="saveUserInfo()">Save</button>
-        <button style = "margin: 0px 10px" class="btn-danger" (click)="clearData()">Clear data</button>
-    </div>
 
-</form>
+
+    <div class="btn-buttom">
+        <button style="margin: 0px 10px;" class="btn-submit" (click)="saveUserInfo()">Save</button>
+        <!-- <button style="margin: 0px 10px;" class="btn-danger" (click)="clearData()">Clear data</button> -->
+    </div>
+</div>

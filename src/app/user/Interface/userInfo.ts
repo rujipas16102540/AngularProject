@@ -1,21 +1,28 @@
+import { Contack, ContackObj } from "./contack";
+import { Education } from "./education";
+import { Experience } from "./experience";
+import { Guild } from "./guid";
+import { Interest } from "./interest";
+import { Skill } from "./skill";
+
 export interface UserInfo {
-  id?: string;
+  id: string;
   username: string;
-  nick_name: string;
-  first_name: string;
-  last_name: string;
+  nickName: string;
+  firstName: string;
+  lastName: string;
   position: string;
   nationality: string;
-  telephone_number: string;
-  starting_date: Date;
-  address: string;
-  sub_district: string;
-  district: string;
-  province: string;
-  postal_code: string;
-  facebook: string;
-  line_id: string;
-  instagram: string;
+  telephoneNumber: string;
+  startingDate: Date;
+  contack?: Contack;
+  educations?: Education[];
+  experiences?: Experience[];
+  skills?: Skill[];
+  interests?: Interest[];
+  guilds?: Guild[];
+  profileImage?: string;
+  coverImage?: string;
 }
 
 export class UserInfoObj {
@@ -23,21 +30,21 @@ export class UserInfoObj {
     return {
       id: '',
       username: '',
-      nick_name: '',
-      first_name: '',
-      last_name: '',
+      nickName: '',
+      firstName: '',
+      lastName: '',
       position: '',
       nationality: '',
-      telephone_number: '',
-      starting_date: new Date(),
-      address: '',
-      sub_district: '',
-      district: '',
-      province: '',
-      postal_code: '',
-      facebook: '',
-      line_id: '',
-      instagram: '',
+      telephoneNumber: '',
+      startingDate: new Date(),
+      contack: ContackObj.Contack(),
+      educations: [],
+      experiences: [],
+      skills: [],
+      interests: [],
+      guilds: [],
+      profileImage: '',
+      coverImage: ''
     }
   }
 }
